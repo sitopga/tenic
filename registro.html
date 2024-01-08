@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="indexForm">
+        <h2>Guardar Usuarios</h2>
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="button" onclick="saveUser()">Guardar en localStorage</button>
+    </form>
+
+    <script>
+        function saveUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Obtener usuarios existentes del localStorage
+            const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Verificar si el usuario ya existe
+            const userExists = existingUsers.some(u => u.username === username);
+
+            if (userExists) {
+                alert('El usuario ya existe');
+            } else {
+                // Agregar nuevo usuario
+                existingUsers.push({ username, password });
+
+                // Guardar en localStorage
+                localStorage.setItem('users', JSON.stringify(existingUsers));
+
+                alert('Usuario guardado en localStorage');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
