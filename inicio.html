@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inicio</title>
+    <title>Página de Inicio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <script type="module">
+       
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCyHr3QmcPsP8BjeUpZLPQ6FkjlLB_v7JU",
+            authDomain: "db-tecnicusuarios.firebaseapp.com",
+            projectId: "db-tecnicusuarios",
+            storageBucket: "db-tecnicusuarios.appspot.com",
+            messagingSenderId: "500178473738",
+            appId: "1:500178473738:web:916af8899ffcef0a5420f3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+               
+                console.log("Usuario no autenticado. Redirigiendo a la página de inicio.");
+                window.location.href = 'error.html'; 
+            }
+        });
+    </script>
+
     <div class="cards">
-        <a href="calendario.html"><div class="card red">
-            <p class="tip">Calendario</p>
-            <p class="second-text">Lorem Ipsum</p>
-        </div></a>
+        <a href="calendario.html">
+            <div class="card red">
+                <p class="tip">Calendario</p>
+                <p class="second-text">Lorem Ipsum</p>
+            </div>
+        </a>
         <div class="card blue">
             <p class="tip">Guardias</p>
             <p class="second-text">Lorem Ipsum</p>
@@ -21,7 +52,8 @@
             <p class="second-text">Lorem Ipsum</p>
         </div>
     </div>
- 
-         <script src="script.js"></script>
+
+    
 </body>
+
 </html>
