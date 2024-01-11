@@ -40,3 +40,14 @@ document.getElementById('login-form').addEventListener('submit', function (event
             console.error("Error de autenticación:", errorCode, errorMessage);
         });
 });
+const cerrarSesion = () => {
+    signOut(auth)
+        .then(() => {
+            console.log('Sesión cerrada exitosamente.');
+            window.location.href = 'index.html';
+        })
+        .catch((error) => {
+            console.error('Error al cerrar sesión:', error);
+        });
+};
+
