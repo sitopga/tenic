@@ -50,4 +50,3 @@ const cerrarSesion = () => {
             console.error('Error al cerrar sesión:', error);
         });
 };
-
