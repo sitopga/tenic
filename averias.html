@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autocomplete con Datalist</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            margin-top: 30px;
+        }
+
+        #search-container {
+            text-align: center;
+        }
+
+        #averias {
+            padding: 10px;
+            width: 300px;
+            margin-top: 10px;
+            border-radius: 30px;
+        }
+
+        /* Add your styles for specific divs here */
+        #No-enfria, #Salta-la-luz, #Problemas-Electricos, #Perdida-de-agua-la-instalacion {
+            /* Add other styles as needed */
+            margin-top: 20px;
+        }
+        #scroll-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 16px;
+        }
+        h2{
+            text-align: center;
+            
+        }
+        .margin{
+            margin-top: 50px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+        li{
+            margin-left: 80PX;
+            margin-right: 80PX;
+        }
+        
+        .texto-azul {
+            color: blue;
+            cursor: pointer;
+        }
+
+        /* Estilo para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        
+        .modal-contenido {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+    
+        .cerrar-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .modal-imagen {
+            width: 300px;
+            height: 300px;
+        }
+        #irArribaBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="search-container">
+        <!-- Campo de entrada para buscar averías -->
+        <input type="text" id="averias" name="averias" list="listaaverias" oninput="scrollToDiv()" placeholder=" ">
+        <!-- Etiqueta de búsqueda -->
+        <label for="averias">Buscar</label>
+    </div>
+    
+    <!-- Datalist para las opciones de búsqueda -->
+    <datalist id="listaaverias">
+        <option value="No enfria">
+        <option value="Salta la luz">
+        <option value="Escudos sin luz">
+        <option value="Perdida agua">
+        <!-- Agrega más opciones según sea necesario -->
+    </datalist>
+    <div id="No-enfria">
+        <h2> No enfria</h2>
+       <ul>
+        <li class="contenedor-flex">
+            PASO 1
+            <P>
+                Verificar si <span class="texto-azul" onclick="mostrarModal('enfriador')">la maquiona tiene hielo</span>.
+            </P>
+
+        </li>
+        <li>
+            PASO 2
+            <P>
+                Verificar si el agitador esta funcionado y hace los riegos correctamente y no esta muy caliente.
+            </P>
+
+        </li>
+       </ul>
+       
+    </div>
+
+    <div id="Salta-la-luz" >
+        <h2> Salta la luz</h2>
+        <ul>
+         <li  class="margin">
+             PASO 1
+             <P>
+                Desconectar la maquina de la luz, desconectar motor agitador del termostato y volver a conectar 
+                la maquina a la corriente, si no salta cambiar el agitador.
+             </P>
+ 
+         </li>
+         <li>
+             PASO 2
+             <P>
+                 Si sigue saltando la luz desconecta la maquina de la corriente, desconectar compresor del termostato y volver 
+                 a conectar la maquina a la corriente, si no salta la luz cambiar la maquina.
+             </P>
+ 
+         </li>
+         <li>
+            PASO 3
+            <P>
+                Si sigue saltando la luz desconecta la maquina de la corriente, desconectar ventilador del termostato y volver 
+                a conectar la maquina a la corriente, si no salta la luz cambiar el ventilador.
+            </P>
+
+        </li>
+        <li>
+            PASO 4
+            <P>
+                Si sigue saltando la luz, verificar que la caja de conexiones de la luz de los escudos que no contenga agua,
+                si tiene agua desconectar la maquina de la corriente secar bien y cambiar transformaador.
+            </P>
+
+        </li>
+        <li>
+            PASO 5
+            <P>
+                Si sigue saltando la luz, verificar que la caja de conexiones termostato que no contenga agua,
+                si tiene agua desconectar la maquina de la corriente y cambiar termostato.
+            </P>
+
+        </li>
+        </ul>
+        
+    </div>
+
+    <div id="Escudos-sin-luz" >
+        <h2> Escudos sin luz</h2>
+        <ul>
+         <li  class="margin">
+             PASO 1
+             <P>
+                Mirar la columna si hay mas de un escudo y estan apagados o si solo hay una columna y esta apagado cambiar el tranformador.
+             </P>
+ 
+         </li>
+         <li class="contenedor-flex">
+             PASO 2
+             <p>
+                Si no encienden, verificar la línea de corriente de los escudos, 
+                <span class="texto-azul" onclick="mostrarModal('miModal')">regleta negra</span>,
+                <span class="texto-azul" onclick="mostrarModal('regletaModal')">terminal conexion rapida</span>,
+                estén bien conectados.
+            </p>
+ 
+         </li>
+         <li>
+            PASO 3
+            <P>
+                si no encienden desconectar los dos escudos y conectarlos por separado si enciende uno cambiar el conector afectado.
+            </P>
+
+        </li>
+    
+       </ul>
+    </div>
+    <div id="Perdida-agua">
+        <h2> Perdida de agua</h2>
+        <ul>
+         <li>
+             PASO 1
+             <P>
+                Mirar si la cubeta a perdido agua hasta el agitador, si ahun queda agua pero no cogue agua el agitador llenar la maquina hasta 
+                que hagan los riegos y comprobar que no piedra agua por los tubos de riego ni por la columna ni los ramales.
+             </P>
+ 
+         </li>
+         <li>
+             PASO 2
+             <P>
+                Si al mirar la cubeta esta vacia y no tiene agua y la maquina no lleva mucho tiempo parada la cubeta pierde agua cambiar la maquina.
+             </P>
+ 
+         </li>
+         <li>
+            PASO 3
+            <P>
+                
+            </P>
+
+        </li>
+    </div>
+
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="ocultarModal('miModal')">X</span>
+            <img class="modal-imagen" src="" alt="Imagen en el popup">
+        </div>
+    </div>
+    
+    <div id="regletaModal" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="ocultarModal('regletaModal')">X</span>
+            <img class="modal-imagen" src="img/terminalconexionrapida.jpg" alt="Imagen en el popup">
+        </div>
+    </div>
+    
+    <div id="enfriador" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="ocultarModal('enfriador')">X</span>
+            <img class="modal-imagen" src="img/interiorenfriador.jpg" alt="Imagen en el popup">
+        </div>
+    </div>
+    <button id="irArribaBtn" onclick="irArriba()">Subir</button>
+
+<!-- Script para el botón Ir Arriba -->
+<script>
+    window.onscroll = function() {
+        mostrarOcultarBoton();
+    };
+
+     function mostrarOcultarBoton() {
+        var botonIrArriba = document.getElementById("irArribaBtn");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            botonIrArriba.style.display = "block";
+        } else {
+            botonIrArriba.style.display = "none";
+        }
+    }
+
+    function irArriba() {
+        document.body.scrollTop = 0; // Para navegadores antiguos
+        document.documentElement.scrollTop = 0; // Para navegadores modernos
+    }
+</script>
+   
+    
+    <script>
+        function mostrarModal(idModal) {
+            var modal = document.getElementById(idModal);
+            modal.style.display = 'flex';
+        }
+    
+        function ocultarModal(idModal) {
+            var modal = document.getElementById(idModal);
+            modal.style.display = 'none';
+        }
+    </script>
+    <script>
+
+    // Función para desplazarse al div deseado
+    function scrollToDiv() {
+        var input = document.getElementById('averias');
+        var selectedOption = input.value;
+        var correspondingDiv = document.getElementById(selectedOption);
+
+        if (correspondingDiv) {
+            correspondingDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    function scrollToDiv() {
+        var input = document.getElementById('averias');
+        var selectedOption = input.value;
+        var correspondingDiv = document.getElementById(selectedOption.replace(/\s+/g, '-'));
+
+        if (correspondingDiv) {
+            correspondingDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Resetear el valor del input 'averias'
+        input.value = '';
+    }
+
+</script>
+ 
+
+</body>
+</html>
+
+
+
+

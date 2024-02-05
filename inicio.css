@@ -216,9 +216,12 @@
   
   main .planning{
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
       gap: 10px;
       margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 50px;
   }
   
   main .planning .item{
@@ -291,7 +294,7 @@
       cursor: pointer;
   }
   
-  .container .right-section{
+  /* .container .right-section{
       padding: 40px 40px 0 40px;
   }
   
@@ -567,4 +570,4 @@
           margin-bottom: 20px;
       }
   
-  }
+  } */
