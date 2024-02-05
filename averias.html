@@ -110,15 +110,52 @@
             cursor: pointer;
             border-radius: 50px;
         }
+        @media screen and (max-width: 768px) {
+     body {
+          display: grid;
+          margin: 0;
+          margin-top: 30px;
+          justify-content: center;
+
+        }
+    .container {
+            padding-left: 0 ;
+            padding-right: 0 ;
+            width: 100%;
+            margin: 0px auto;
+        }
+    #search-container {
+            grid-template-columns: 1fr;
+            justify-content: center;
+        }
+   
+      
+     li{
+        margin-left: 2PX;
+        margin-right: 20PX;
+        
+     }
+     .buscar{
+        display: none;
+     }
+     #averias {
+            padding: 10px;
+            width: 200px;
+            margin-top: 10px;
+            border-radius: 30px;
+        }
+  
+  }
     </style>
 </head>
 <body>
 
+   <div class="container">
     <div id="search-container">
         <!-- Campo de entrada para buscar averías -->
         <input type="text" id="averias" name="averias" list="listaaverias" oninput="scrollToDiv()" placeholder=" ">
         <!-- Etiqueta de búsqueda -->
-        <label for="averias">Buscar</label>
+        <label class="buscar" for="averias">Buscar</label>
     </div>
     
     <!-- Datalist para las opciones de búsqueda -->
@@ -153,7 +190,7 @@
     <div id="Salta-la-luz" >
         <h2> Salta la luz</h2>
         <ul>
-         <li  class="margin">
+         <li >
              PASO 1
              <P>
                 Desconectar la maquina de la luz, desconectar motor agitador del termostato y volver a conectar 
@@ -200,7 +237,7 @@
     <div id="Escudos-sin-luz" >
         <h2> Escudos sin luz</h2>
         <ul>
-         <li  class="margin">
+         <li >
              PASO 1
              <P>
                 Mirar la columna si hay mas de un escudo y estan apagados o si solo hay una columna y esta apagado cambiar el tranformador.
@@ -274,6 +311,7 @@
             <img class="modal-imagen" src="img/interiorenfriador.jpg" alt="Imagen en el popup">
         </div>
     </div>
+   </div>
     <button id="irArribaBtn" onclick="irArriba()">Subir</button>
 
 <!-- Script para el botón Ir Arriba -->
