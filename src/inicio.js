@@ -46,3 +46,14 @@ const mostrarUsuarioActual = () => {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('cerrar-sesion-btn').addEventListener('click', cerrarSesion);
 });
+
+
+let fecha = new Date();
+let fechaActual = fecha.toLocaleDateString();
+document.getElementById("fecha").textContent = fechaActual;
+
+º       // setInterval(() => {
+//     let fecha=new Date();
+// let fechaHora=fecha.toLocaleString();
+// document.getElementById("fecha").textContent=fechaHora;
+// }, 1000);

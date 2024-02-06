@@ -92,7 +92,13 @@
       justify-content: center;
   }
   
-  
+    .main {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
   
   main .analytics{
       display: grid;
