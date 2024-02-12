@@ -312,8 +312,20 @@
     </div>
    </div>
     <button id="irArribaBtn" onclick="irArriba()">Subir</button>
+    <script>
+        function mostrarModal(idModal) {
+            var modal = document.getElementById(idModal);
+            modal.style.display = 'flex';
+        }
+    
+        function ocultarModal(idModal) {
+            var modal = document.getElementById(idModal);
+            modal.style.display = 'none';
+        }
+    </script>
 
 <!-- Script para el botón Ir Arriba -->
+<script src="./src/aut.js"></script>
 <script>
     window.onscroll = function() {
         mostrarOcultarBoton();
@@ -335,17 +347,7 @@
 </script>
    
     
-    <script>
-        function mostrarModal(idModal) {
-            var modal = document.getElementById(idModal);
-            modal.style.display = 'flex';
-        }
-    
-        function ocultarModal(idModal) {
-            var modal = document.getElementById(idModal);
-            modal.style.display = 'none';
-        }
-    </script>
+   
     <script>
 
     // Función para desplazarse al div deseado

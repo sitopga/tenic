@@ -44,16 +44,26 @@ const mostrarUsuarioActual = () => {
 
 // Asignar evento onclick utilizando addEventListener
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('cerrar-sesion-btn').addEventListener('click', cerrarSesion);
+document.getElementById('cerrar-sesion-btn').addEventListener('click', cerrarSesion);
 });
 
 
 let fecha = new Date();
 let fechaActual = fecha.toLocaleDateString();
 document.getElementById("fecha").textContent = fechaActual;
+function mueveReloj(){
+    momentoActual = new Date()
+    hora = momentoActual.getHours()
+    minuto = momentoActual.getMinutes()
+    horaImprimible = hora + " : " + minuto + " : "
+    document.form_reloj.reloj.value = horaImprimible
+    setTimeout("mueveReloj()",1000)
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const avatarBtn = document.querySelector('.avatar-btn');
+    const linksDiv = document.querySelector('.links');
 
-º       // setInterval(() => {
-//     let fecha=new Date();
-// let fechaHora=fecha.toLocaleString();
-// document.getElementById("fecha").textContent=fechaHora;
-// }, 1000);
+    avatarBtn.addEventListener('click', function () {
+        linksDiv.classList.toggle('show');
+    });
+});

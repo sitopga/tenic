@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCyHr3QmcPsP8BjeUpZLPQ6FkjlLB_v7JU",
     authDomain: "db-tecnicusuarios.firebaseapp.com",
@@ -34,11 +35,17 @@ document.getElementById('login-form').addEventListener('submit', function (event
             console.log("Usuario autenticado:", user);
             window.location.href = './inicio.html';
         })
+       
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.error("Error de autenticación:", errorCode, errorMessage);
+            console.log(error .message)
+            console.log(error .code)
+            if(error.code ==='auth/invalid-credential')
+                window.alert('nombre y contrseña incorrectas')
         });
+      
 });
 const cerrarSesion = () => {
     signOut(auth)

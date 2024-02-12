@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,18 +10,43 @@
 </head>
 
 <body>
-
-    <div class="container">
-
-        <div class="container">
-            <div class="main">
-                <button class="color" id="cerrar-sesion-btn">
+   <style>
+      
+    </style>
+    <nav class="nav">
+            <div class="conten">
+                
+                  <div class="links">
+                    <div class="cont-usuario">
+                        <a class="usuario" href="/usuario.html">
+                            <span class='bx bxs-user'>Usuarios</span>
+                        </a>
+                    </div>
+                   <div class="cont-usuario">
+                    <a class="salir" id="cerrar-sesion-btn"href="">
+                        <span class='button bx bxs-log-out'>Cerrar Sesion</span>
+                    </a>
+                   </div>
+                </div>
+                <button class="avatar-btn">
+                    <img class="img-avatar" src="/img/avatar.png" ></yt-img-shadow>
+                  </button>
+                   <div><img class="img-tc" src="/img/tc.jpg" alt=""></div>
+                  <div class="fecha"> <h2 id="fecha"></h2></div>
+            </div>
+            <!-- <div>
+                <div> <button class="color" id="cerrar-sesion-btn">
                     <span class='button bx bxs-log-out'></span>
                 </button>
-                <h2 id="fecha"></h2>
             </div>
-            
+                <div>
+                    <button class="color-users usuarios">
+                        <span class='bx bxs-user'></span>
+                    </button>
+                </div> -->
+    </nav>
 
+    <div class="container">
         <main>
 
             <div class="analytics">
@@ -73,7 +97,6 @@
             </div>
 
           
-
             <div class="planning">
                 <div class="item">
                     <div class="left">
@@ -81,12 +104,13 @@
                             <i class='bx bx-book-alt'></i>
                         </div>
                         <div class="details">
-                            <h5>Horas Guardias</h5>
-                            
+                            <h5>HORAS AVERIAS</h5>
                         </div>
+                        <div id="datosGuardados" class="datos-guardados"></div>
                     </div>
-                    <i class='bx bx-dots-vertical-rounded'></i>
+                    <span class='bx bxs-pencil' onclick="mostrarModal('enfriador')"></span>
                 </div>
+                
                 <div class="item">
                     <div class="left">
                         <div class="icon">
@@ -99,38 +123,33 @@
                     </div>
                     <i class='bx bx-dots-vertical-rounded'></i>
                 </div>
-                <!-- <div class="item">
-                    <div class="left">
-                        <div class="icon">
-                            <i class='bx bx-headphone'></i>
-                        </div>
-                        <div class="details">
-                            <h5>Listening - Topic 1</h5>
-                            <p>15:00 - 16:00</p>
-                        </div>
+                <div id="enfriador" class="modal">
+                    <div class="modal-contenido">
+                        <span class="cerrar-modal" onclick="ocultarModal('enfriador')">X</span>
+                        <h2>Horas Guardias</h2>
+                        <input class="horas" style="width: 50px;" type="number" id="horasInput">
+                        <label for="">H</label>
+                        <input style="width: 50px;" type="number" id="minutosInput">
+                        <label for="">M</label>
+                        <br><br>
+                        <input type="button" value="Guardar" onclick="guardarDatos()">
+                        <input type="button" value="Borrar Datos" onclick="borrarDatos()">
                     </div>
-                    <i class='bx bx-dots-vertical-rounded'></i>
                 </div>
-                <div class="item">
-                    <div class="left">
-                        <div class="icon">
-                            <i class='bx bx-volume-low'></i>
-                        </div>
-                        <div class="details">
-                            <h5>Listening - Topic 2</h5>
-                            <p>19:00 - 20:00</p>
-                        </div>
-                    </div>
-                    <i class='bx bx-dots-vertical-rounded'></i>
-                </div>
-            </div> -->
+                
+            </div>
+        </main>
+        <script>
+          
+         
+        </script>
         </main>
 
       
        
     </div>
     <script type="module" src="./src/inicio.js"></script>
-    <!-- <script src="src/inicio.js"></script> -->
+    <script src="./src/horas.js"></script>
 </body>
 
 </html>
@@ -172,4 +191,8 @@
 </body>
 
 </html> -->
+
+
+
+
 

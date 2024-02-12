@@ -1,81 +1,129 @@
- body {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 20px;
-    /* padding: 0; */
-    
-    /* align-items: center;
-    justify-content: center; */
     height: 100vh;
     background: linear-gradient(to bottom, #2c88c6, #add7f3);
 }
-/*
-.cards {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  .calendario {
-   text-decoration: none;
-  }
-  
-  .cards .red {
-    background-color: #f43f5e;
-  }
-  
-  .cards .blue {
-    background-color: #3b82f6;
-  }
-  
-  .cards .green {
-    background-color: #22c55e;
-  }
-  
-  .cards .card {
-    display: flex;
-    align-items: center;
+/* estilos horas averias */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-contenido {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.datos-guardados {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.datos-guardados{
+    display: grid;
     text-align: center;
+    justify-content: center;
+    margin-left: 30px;
+    text-decoration: none;
+    border: none;
+}
+.conten {
+    display: grid;
+    grid-template-columns: 1fr ;
+}
+.avatar-btn{
+    justify-self: end;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50px;
+   margin-top: 0px;
+   margin-right: 30;
+}
+
+.links{
+    background-color: #f9f9f9;
+    width: 185px;
+    display: none;
+    text-align: left;
+    width: 200px;
     height: 150px;
-    width: 500px;
-    border-radius: 10px;
-    color: white;
+    margin-top: 70px;
+    z-index: 5;
+    position: absolute;
+    margin-top: 80px;
+    justify-self: center;
+    border-radius: 20px;
+    
+}
+.links.show {
+    display: block;
+    margin-right:-30px;
+    justify-self: end;
+    margin-top: 250px;
+}
+.usuario {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 13px;
+    margin-top: 20px;
+}
+.salir {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 10px;
+    margin-top: 16px;
+}
+.cont-usuario:hover{
+    background-color: #c6c4c4;
+}
+.img-tc{
+    display: grid;
+    width: 50px;
+    height: 50px;
+    margin-top: -50px;
+    border-radius: 50px;
+}
+.img-avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+.fecha{
+    justify-content: center;
+    text-align: center;
+    margin-top: -100px;
+}
+.bx-dots-vertical-rounded{
     cursor: pointer;
-    transition: 400ms;
-  }
-  
-  .cards .card p.tip {
-    font-size: 1em;
-    font-weight: 700;
-  }
-  
-  .cards .card p.second-text {
-    font-size: .7em;
-  }
-  
-  .cards .card:hover {
-    transform: scale(1.1, 1.1);
-  }
-  
-  .cards:hover > .card:not(:hover) {
-    filter: blur(10px);
-    transform: scale(0.9, 0.9);
-  }
-   */
-   .color{
-    background-color: #2c88c6;
-    border-color: #2c88c6;
-    border-radius: 0%;
+}
+.bxs-pencil{
     cursor: pointer;
-    margin-left: 20px;
-    margin-top: 40px;
-   }
-   .button{
-    font-size: 40px;
-    color: #131212;
-    border-radius: 0px;
-     border-color: #2c88c6;
-     margin-top: -50px;
 }
   .calendar{
     width: 100%;
