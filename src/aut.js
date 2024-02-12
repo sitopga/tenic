@@ -19,3 +19,25 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = 'error.html';
     }
 });
+
+// Función para cerrar sesión y redirigir a index.html
+const cerrarSesion = () => {
+    signOut(auth)
+        .then(() => {
+            console.log('Sesión cerrada exitosamente.');
+            window.location.href = 'index.html';
+        })
+        .catch((error) => {
+            console.error('Error al cerrar sesión:', error);
+        });
+};
+
+// Función para mostrar información sobre el usuario actual
+const mostrarUsuarioActual = () => {
+    const user = auth.currentUser;
+    if (user) {
+        console.log('Usuario actual:', user);
+    } else {
+        console.log('Ningún usuario autenticado.');
+    }
+};
