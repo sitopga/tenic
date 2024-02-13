@@ -535,7 +535,7 @@ body {
   }
   
   @media screen and (max-width: 992px) {
-      
+
       .container{
           grid-template-columns: 1fr 1fr;
       }
@@ -605,6 +605,23 @@ body {
   }
   
   @media screen and (max-width: 768px) {
+
+    .datos-guardados{
+       text-align: center;
+       justify-content: center;
+       text-align: center;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        margin-left: 80px;
+    }
+    .details h5{
+        margin-top: -25px;
+        position: relative;
+        margin-left: 15px;
+        font-size: 10px;
+    }
+      
       
       .container{
           grid-template-columns: 1fr;

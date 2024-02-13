@@ -131,13 +131,30 @@
                         <label for="">H</label>
                         <input style="width: 50px;" type="number" id="minutosInput">
                         <label for="">M</label>
+                        <input class="horas" style="width: 100px;" type="date" value="valueAsDate" id="diaInput">
+                        <label for="">D</label>
                         <br><br>
                         <input type="button" value="Guardar" onclick="guardarDatos()">
                         <input type="button" value="Borrar Datos" onclick="borrarDatos()">
+                        <button onclick="mostrarDatosGuardados()">Mostrar Datos</button>
                     </div>
                 </div>
                 
             </div>
+                <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
         </main>
         <script>
           
