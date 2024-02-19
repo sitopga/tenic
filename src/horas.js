@@ -13,8 +13,6 @@ function abrirIndexedDB() {
         request.onupgradeneeded = function(event) {
             var db = event.target.result;
             var objectStore = db.createObjectStore('datos', { keyPath: 'id', autoIncrement: true });
-            objectStore.createIndex('horas', 'horas', { unique: false });
-          
         };
     });
 }

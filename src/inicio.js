@@ -63,7 +63,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const avatarBtn = document.querySelector('.avatar-btn');
     const linksDiv = document.querySelector('.links');
 
-    avatarBtn.addEventListener('click', function () {
+    avatarBtn.addEventListener('click', function (event) {
+        event.stopPropagation(); // Detener la propagación del evento clic
         linksDiv.classList.toggle('show');
     });
-});
+  });
+
+  // JavaScript para cerrar los enlaces al hacer clic en cualquier parte de la pantalla
+  document.addEventListener('click', function(event) {
+    // Verificar si el elemento clickeado no es un enlace
+    var linksDiv = document.querySelector('.links');
+    if (!linksDiv.contains(event.target)) {
+      // Si el clic no fue dentro de los enlaces, se ocultan los enlaces
+      linksDiv.classList.remove('show'); // Remover la clase 'show' para ocultar los enlaces
+    }
+  });
+

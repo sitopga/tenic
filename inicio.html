@@ -126,13 +126,12 @@
                 <div id="enfriador" class="modal">
                     <div class="modal-contenido">
                         <span class="cerrar-modal" onclick="ocultarModal('enfriador')">X</span>
-                        <h2>Horas Guardias</h2>
-                        <input class="horas" style="width: 50px;" type="number" id="horasInput">
+                        <h2 class="horasguardias">Horas Guardias</h2>
+                        <input class="dia" type="date" value="valueAsDate" id="diaInput">
+                        <input class="horas" type="number" id="horasInput">
                         <label for="">H</label>
-                        <input style="width: 50px;" type="number" id="minutosInput">
+                        <input class="minutos" type="number" id="minutosInput">
                         <label for="">M</label>
-                        <input class="horas" style="width: 100px;" type="date" value="valueAsDate" id="diaInput">
-                        <label for="">D</label>
                         <br><br>
                         <input type="button" value="Guardar" onclick="guardarDatos()">
                         <input type="button" value="Borrar Datos" onclick="borrarDatos()">

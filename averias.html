@@ -5,162 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autocomplete con Datalist</title>
-    <script type="module" src="./src/aut.js"></script>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            margin-top: 30px;
-        }
-
-        #search-container {
-            text-align: center;
-        }
-
-        #averias {
-            padding: 10px;
-            width: 300px;
-            margin-top: 10px;
-            border-radius: 30px;
-        }
-
-        
-        #No-enfria, #Salta-la-luz, #Problemas-Electricos, #Perdida-de-agua-la-instalacion {
-            margin-top: 20px;
-        }
-        #scroll-to-top-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            cursor: pointer;
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 16px;
-        }
-        h2{
-            text-align: center;
-            
-        }
-        .margin{
-            margin-top: 50px;
-            margin-left: 80px;
-            margin-right: 80px;
-        }
-        li{
-            margin-left: 80PX;
-            margin-right: 80PX;
-        }
-        
-        .texto-azul {
-            color: blue;
-            cursor: pointer;
-        }
-
-        /* Estilo para el modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-        }
-
-        
-        .modal-contenido {
-            position: relative;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 80%;
-            max-height: 80%;
-            overflow: auto;
-        }
-
+    <link rel="stylesheet" href="/styles/averias.css">
     
-        .cerrar-modal {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-
-        .modal-imagen {
-            width: 300px;
-            height: 300px;
-        }
-        #irArribaBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: blue;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            border-radius: 50px;
-        }
-        @media screen and (max-width: 768px) {
-     body {
-          display: grid;
-          margin: 0;
-          margin-top: 30px;
-          justify-content: center;
-
-        }
-    .container {
-            padding-left: 0 ;
-            padding-right: 0 ;
-            width: 100%;
-            margin: 0px auto;
-        }
-    #search-container {
-            grid-template-columns: 1fr;
-            justify-content: center;
-        }
-   
-      
-     li{
-        margin-left: 2PX;
-        margin-right: 20PX;
-        
-     }
-     .buscar{
-        display: none;
-     }
-     #averias {
-            padding: 10px;
-            width: 200px;
-            margin-top: 10px;
-            border-radius: 30px;
-        }
-  
-  }
-    </style>
 </head>
 <body>
 
    <div class="container">
     <div id="search-container">
-        <!-- Campo de entrada para buscar averías -->
-        <input type="text" id="averias" name="averias" list="listaaverias" oninput="scrollToDiv()" placeholder=" ">
-        <!-- Etiqueta de búsqueda -->
+        <input type="text" id="averias" name="averias" list="listaaverias" >
         <label class="buscar" for="averias">Buscar</label>
     </div>
-    
-    <!-- Datalist para las opciones de búsqueda -->
+
     <datalist id="listaaverias">
-        <option value="No enfria">
+        <option id="No enfria" value="No enfria">
         <option value="Salta la luz">
         <option value="Escudos sin luz">
         <option value="Perdida agua">
@@ -170,20 +27,24 @@
         <h2> No enfria</h2>
        <ul>
         <li class="contenedor-flex">
-            PASO 1
+        
             <P>
-                Verificar si <span class="texto-azul" onclick="mostrarModal('enfriador')">la maquiona tiene hielo</span>.
+                Si la maquina no enfria podria ser por varios motivos, <span class="texto-azul" onclick="mostrarModal('enfriador')">la maquiona tiene hielo</span>,
+                que el agitador no funcione, que el radiador este sucio y no coja ahire,
+                que el <span class="texto-azul" onclick="mostrarModal('control')">termostato o (control de hielo)</span> este averiado y no arranque el
+                compresor, el ventilador este estropeado, el compresor este clavado, fuga de gas del compresor, primero tendras que verificar que componente esta averiado.
+            </P>
+        </li>
+        <li style="margin-top: 30px;">
+    
+            <P>
+                Para saver que componente esta averiado sigue los pasos del boton correctivo ahi tendras todos los pasos a seguir.
             </P>
 
         </li>
-        <li>
-            PASO 2
-            <P>
-                Verificar si el agitador esta funcionado y hace los riegos correctamente y no esta muy caliente.
-            </P>
-
-        </li>
+        <button class="abrircorrectivo" id="abrirSlider">Correctivo</button>
        </ul>
+
        
     </div>
 
@@ -290,95 +151,104 @@
 
         </li>
     </div>
-
-    <div id="miModal" class="modal">
-        <div class="modal-contenido">
-            <span class="cerrar-modal" onclick="ocultarModal('miModal')">X</span>
-            <img class="modal-imagen" src="" alt="Imagen en el popup">
-        </div>
-    </div>
-    
-    <div id="regletaModal" class="modal">
-        <div class="modal-contenido">
-            <span class="cerrar-modal" onclick="ocultarModal('regletaModal')">X</span>
-            <img class="modal-imagen" src="img/terminalconexionrapida.jpg" alt="Imagen en el popup">
-        </div>
-    </div>
-    
     <div id="enfriador" class="modal">
         <div class="modal-contenido">
-            <span class="cerrar-modal" onclick="ocultarModal('enfriador')">X</span>
-            <img class="modal-imagen" src="img/interiorenfriador.jpg" alt="Imagen en el popup">
+           <span class="cerrar-modal" onclick="ocultarModal('enfriador')">X</span>
+           <img class="modal-imagen" src="img/interiorenfriador.jpg" alt="Imagen en el popup">
+           </div>
+        </div>
+        <div id="miModal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar-modal" onclick="ocultarModal('miModal')">X</span>
+                <img class="modal-imagen" src="" alt="Imagen en el popup">
+            </div>
+        </div>
+        <div id="control" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar-modal" onclick="ocultarModal('control')">X</span>
+                <img class="modal-imagen" src="img/controlcon.webp" alt="Imagen en el popup">
+            </div>
+        </div>
+    
+    
+        <div id="regletaModal" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar-modal" onclick="ocultarModal('regletaModal')">X</span>
+                <img class="modal-imagen" src="img/terminalconexionrapida.jpg" alt="Imagen en el popup">
+            </div>
+        </div>
+   </div>
+    <!-- slider  -->
+    <div class="center-container">
+        <div class="slider-container" id="sliderContainer" style="display: none;">
+            <div class="cont-btn">
+                <button class="btn-cerrar cerrar-slider-btn">X</button>
+            </div>
+            <div class="slider" id="slider">
+                <div class="slide-section">
+                    <h2>Elige que averia tiene</h2>
+                    <p>Verifica si <span class="texto-azul" onclick="mostrarModal('enfriador')">la maquina no tiene hielo</span>.</p>
+                    <p><span class="texto-azul" onclick="nextSlide()">La maquina no tiene hielo pero el agua esta fria.</span></p>
+                    <p class="texto-azul" onclick="mostrarSlider2()">La maquina no tiene hielo y el agua esta caliente.</p>
+                    <p>La maquina tiene hielo pero no enfria las columnas.</p>
+                </div>
+                <div class="slide-section">
+                    <p class="separador">Si la maquina tiene el agua fria pero no hace hielo
+                        comprueva que el radiador este 
+                        limpio y coja suficienete aire. Limpia el radiador con una escobilla o escoba y retira todo el polvo
+                        acumulado, una vez limpio toca con la mano que no este caliente.
+                        Si el radiador esta caliente y una vez limpio no coge suficiente aire tendras que bufar el radiador.
+                    </p>
+                    <p><span class="texto-azul" onclick="nextSlide()">¿Como se limpia el radiador?</span></p>
+                </div>
+                <div class="slide-section">
+                    <p class="retira">Retira la regilla del radiador.</p>
+                    <img src="img/radiador.webp" alt="Slide 3">
+                    <p class="retira">Limpiar el radiador con un cepillo.</p>
+                    <div class="slider-btn-container">
+                        <button class="cerrarSlider slider-btn cerrar-slider-btn">Si</button>
+                        <button class="slider-btn slider-right" id="slider" onclick="netSlide()">No</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-   </div>
-    <button id="irArribaBtn" onclick="irArriba()">Subir</button>
-    <script>
-        function mostrarModal(idModal) {
-            var modal = document.getElementById(idModal);
-            modal.style.display = 'flex';
-        }
-    
-        function ocultarModal(idModal) {
-            var modal = document.getElementById(idModal);
-            modal.style.display = 'none';
-        }
-    </script>
-
-<!-- Script para el botón Ir Arriba -->
-
-<script>
-    window.onscroll = function() {
-        mostrarOcultarBoton();
-    };
-
-     function mostrarOcultarBoton() {
-        var botonIrArriba = document.getElementById("irArribaBtn");
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            botonIrArriba.style.display = "block";
-        } else {
-            botonIrArriba.style.display = "none";
-        }
-    }
-
-    function irArriba() {
-        document.body.scrollTop = 0; // Para navegadores antiguos
-        document.documentElement.scrollTop = 0; // Para navegadores modernos
-    }
-</script>
-   
-    
-   
-    <script>
-
-    // Función para desplazarse al div deseado
-    function scrollToDiv() {
-        var input = document.getElementById('averias');
-        var selectedOption = input.value;
-        var correspondingDiv = document.getElementById(selectedOption);
-
-        if (correspondingDiv) {
-            correspondingDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-    function scrollToDiv() {
-        var input = document.getElementById('averias');
-        var selectedOption = input.value;
-        var correspondingDiv = document.getElementById(selectedOption.replace(/\s+/g, '-'));
-
-        if (correspondingDiv) {
-            correspondingDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Resetear el valor del input 'averias'
-        input.value = '';
-    }
-
-</script>
- 
-
+    <div  class="slider" id="slider2" style="display: none;">
+        <div class="slide-section">
+            <h2>Elige que averia tiene</h2>
+            
+            
+            <p>La maquina no tiene hielo y el agua esta caliente.</p>
+            <p>La maquina tiene hielo pero no enfria las columnas.</p>
+        </div>
+        <div class="slide-section">
+            <p class="separador">Si la maquina tiene el agua fria pero no hace hielo
+                comprueva que el radiador este 
+                limpio y coja suficienete aire. Limpia el radiador con una escobilla o escoba y retira todo el polvo
+                acumulado, una vez limpio toca con la mano que no este caliente.
+                Si el radiador esta caliente y una vez limpio no coge suficiente aire tendras que bufar el radiador.
+            </p>
+            
+        </div>
+        <div class="slide-section">
+            <p class="retira">Retira la regilla del radiador.</p>
+            <img src="img/radiador.webp" alt="Slide 3">
+            <p class="retira">Limpiar el radiador con un cepillo.</p>
+            <div class="slider-btn-container">
+                <button class="cerrarSlider slider-btn cerrar-slider-btn">Si</button>
+            
+            </div>
+        </div>
+    </div>
+     <button id="irArribaBtn" onclick="irArriba()">Subir</button>
+<script  src="/src/averias.js"></script>
+<script type="modal-contenido" src="/src/aut.js"></script>
 </body>
 </html>
+
+
+
+
 
 
 
