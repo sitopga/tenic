@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     z-index: 10; 
-   
+    
   }
   /* .center-container {
     position: fixed;
@@ -24,8 +24,8 @@
   } */
   
   .slider-container {
-    width: 80%;
-    max-width: 800px;
+    width: 90%;
+    max-width: 500px;
     height: 600px;
     overflow: hidden;
     position: relative;
@@ -229,6 +229,23 @@ li{
       margin-top: 30px;
       justify-content: center;
     
+    }
+    .center-container {
+      position: fixed;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      z-index: 10; 
+      margin-top: 10px;
+    }
+    .slider-container {
+      width: 70%;
+      max-width: 400px;
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+      background-color: beige;
     }
     .container {
         padding-left: 0 ;
